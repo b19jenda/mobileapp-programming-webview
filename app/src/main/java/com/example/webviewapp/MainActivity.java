@@ -15,9 +15,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
-
+    private WebView myWebView;
     public void showExternalWebPage(){
         // TODO: Add your code for showing external web page here
+
+        myWebView.loadUrl("https://www.example.com");
     }
 
     public void showInternalWebPage(){
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        WebView myWebView = (WebView) findViewById(R.id.b19jenda_webview);
+        myWebView= (WebView) findViewById(R.id.b19jenda_webview);
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         /*
