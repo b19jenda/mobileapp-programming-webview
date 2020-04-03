@@ -1,5 +1,6 @@
 package com.example.webviewapp;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -16,14 +18,17 @@ import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
     private WebView myWebView;
-    public void showExternalWebPage(){
+    public void showExternalWebPage(MenuItem item){
         // TODO: Add your code for showing external web page here
+        myWebView.loadUrl("https://www.his.se");
 
-        myWebView.loadUrl("https://www.example.com");
     }
 
-    public void showInternalWebPage(){
+    public void showInternalWebPage(MenuItem item){
         // TODO: Add your code for showing internal web page here
+        myWebView.loadUrl("file:///android_asset/om.html");
+
+
     }
 
     @Override
@@ -32,9 +37,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        myWebView= (WebView) findViewById(R.id.b19jenda_webview);
+        myWebView= findViewById(R.id.b19jenda_webview);
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+
         /*
         * Rename your App. Tip: Values->Strings
         * Enable Internet access for your App. Tip: Manifest
@@ -97,4 +103,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
